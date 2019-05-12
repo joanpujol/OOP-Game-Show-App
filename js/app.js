@@ -42,7 +42,8 @@ for(let i = 0; i < keyboardButtons.length; i++) {
 
 // Adds listener to keydown events
 document.addEventListener("keydown", (event) => {
-    let letter = event.key;
+    let letter = event.key.toLowerCase();
+
     for(let i = 0; i < keyboardButtons.length; i++) {
         let currentKeyBoardButton = keyboardButtons[i];
         if(currentKeyBoardButton.innerHTML == letter) {
