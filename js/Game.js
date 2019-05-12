@@ -7,7 +7,9 @@ class Game {
         this.phrases = [
             "oh this is awkward",
             "hold my beer",
-            "thats what she said"
+            "thats what she said",
+            "the moment when you realize",
+            "make my day"
         ];
 
         this.hearts = document.querySelectorAll(".tries");
@@ -76,8 +78,8 @@ class Game {
             gameOverMessage.innerHTML = "You Lose :(";
         }
 
-        // Resets the game
-        this.resetGame();
+        this.gameStarted = false;
+        firstGame = false;
     }
 
     // Gets a random phrase and displays it
@@ -85,14 +87,12 @@ class Game {
         const randomPhrase = this.getRandomPhrase();
         this.gamePhrase = new Phrase(randomPhrase);
         this.gamePhrase.addPhraseToDisplay();
+        this.gameStarted = true;
     }
 
     // Indicates if the game has started
     hasGameStarted() {
-        if(this.gamePhrase == false) {
-            return false;
-        }
-        return true;
+        return this.gameStarted;
     }
 
     // Resets the game

@@ -1,3 +1,5 @@
+let firstGame = true;
+
 // Hides the start screen overlay
 const overlay = document.getElementById("overlay");
 function resetDisplay(overlay) {
@@ -20,8 +22,12 @@ const startGameButton = document.getElementById("btn__reset");
 startGameButton.addEventListener("click", () => {
     resetDisplay(overlay);
 
-    // Creates a new instance of game
-    game = new Game();
+    if(firstGame) {
+        // Creates a new instance of game
+        game = new Game();
+    } else {
+        game.resetGame();
+    }
     game.startGame();
 });
 
