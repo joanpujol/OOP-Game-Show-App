@@ -73,7 +73,7 @@ class Game {
             gameOverMessage.innerHTML = "You Win!";
         } else {
             gameOverMessage.classList.add("lose");
-            gameOverMessage.innerHTML = "You Loose :(";
+            gameOverMessage.innerHTML = "You Lose :(";
         }
 
         // Resets the game
