@@ -1,4 +1,5 @@
 class Phrase {
+    // Constructor that accepts a phrase
     constructor(phrase) {
         let phraseArray = [];
         for (let i = 0; i < phrase.length; i++) {
@@ -8,8 +9,8 @@ class Phrase {
         this.phrase = phraseArray;
     }
 
+    // Shows the phrase on the gameboard
     addPhraseToDisplay() {
-        // Gets phrase section on page
         const phraseSection = document.querySelector("#phrase ul");
 
         for (let i = 0; i < this.phrase.length; i++) {
@@ -30,6 +31,15 @@ class Phrase {
         }
     }
 
+    // Removes the phrase from the gameboard
+    removePhraseFromDisplay() {
+        const phraseOnDisplay = document.querySelectorAll(".letter, .space");
+        for (let i = 0; i < phraseOnDisplay.length; i++) {
+            phraseOnDisplay[i].parentNode.removeChild(phraseOnDisplay[i]);
+        }
+    }
+
+    // Checks if a letter is in the phrase
     checkLetter(letter) {
         if(this.phrase.indexOf(letter) != -1) {
             return true;
@@ -37,11 +47,12 @@ class Phrase {
         return false;
     }
 
+    // Reveals the letter(s) on the board that matches the player's selection
     showMatchedLetter(letter) {
         let matchedLetters = document.querySelectorAll(`.${letter}`);
         for (let i = 0; i < matchedLetters.length; i++) {
             matchedLetters[i].classList.remove("hide");
-            matchedLetters[i].style.color = "black";
+            matchedLetters[i].classList.add("show");
         }
     }
 }
