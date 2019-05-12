@@ -43,10 +43,15 @@ for(let i = 0; i < keyboardButtons.length; i++) {
 // Adds listener to keydown events
 document.addEventListener("keydown", (event) => {
     let letter = event.key.toLowerCase();
-
     for(let i = 0; i < keyboardButtons.length; i++) {
         let currentKeyBoardButton = keyboardButtons[i];
-        if(currentKeyBoardButton.innerHTML == letter) {
+
+        // To avoid keyboard input from selecting multiple times
+        // the same letter
+        let currentButtonClasses = currentKeyBoardButton.classList;
+        let hasBeenAlreadySelected = currentButtonClasses.contains("chosen") || currentButtonClasses.contains("wrong");
+
+        if(currentKeyBoardButton.innerHTML == letter && !hasBeenAlreadySelected) {
             markButton(currentKeyBoardButton);
         }
     }
