@@ -1,4 +1,4 @@
-# OOP-Game-Show-App
+# OOP Game Show App
 In this project, I created a browser-based, word guessing game: "Phrase Hunter." I used JavaScript and OOP (Object Oriented Programming) to select a random, hidden phrase, which a player tries to guess, by clicking letters on an onscreen keyboard.
 
 Using JavaScript, I created an array of phrases and created two JavaScript classes with specific properties and methods. I created a class for the game, and a phrase class to help with creating phrases.
